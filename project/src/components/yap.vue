@@ -10,11 +10,11 @@
         data:{
 
         },
-        mounted: fucntion() {
+        mounted: fucntion(){
             this.fetchData;
-        }
+        },
         methods:{
-            fetchData: asunc function() {
+            fetchData: async function() {
                 try {
                     const result = await fetch("https://data.cityofnewyork.us/resource/uip8-fykc.json");
                 }
