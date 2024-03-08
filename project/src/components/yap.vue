@@ -10,7 +10,7 @@
         data:{
 
         },
-        mounted: fucntion(){
+        mounted: function(){
             this.fetchData;
         },
         methods:{
