@@ -7,14 +7,14 @@
 <script>
     export default {
      
-        data () {
+        data:{
 
         },
-        mounted: function () {
+        mounted: function(){
             this.fetchData;
         },
         methods:{
-            fetchData: async function () {
+            fetchData: async function() {
                 try {
                     const result = await fetch("https://data.cityofnewyork.us/resource/uip8-fykc.json");
                 }
