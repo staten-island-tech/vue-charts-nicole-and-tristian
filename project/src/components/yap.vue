@@ -1,33 +1,24 @@
-c<template>
-    <div>
-
-    </div>
+c
+<template>
+  <div></div>
 </template>
 
 <script>
-    export default {
-     
-        data:{
-
-        },
-        mounted: function () {
-            this.fetchData;
-        },
-        methods:{
-            fetchData: async function () {
-                try {
-                    const result = await fetch("https://data.cityofnewyork.us/resource/uip8-fykc.json");
-                }
-                catch (error) {
-                    console.log(error)
-
-                }
-            }
-        }
-
+export default {
+  data: {},
+  mounted: function () {
+    this.fetchData
+  },
+  methods: {
+    fetchData: async function () {
+      try {
+        const result = await fetch('https://data.cityofnewyork.us/resource/uip8-fykc.json')
+      } catch (error) {
+        console.log(error)
+      }
     }
+  }
+}
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

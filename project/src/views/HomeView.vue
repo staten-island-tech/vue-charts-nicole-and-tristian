@@ -1,9 +1,69 @@
 <template>
-  <div></div>
+  <Bar :data="data" :options="options" />
 </template>
 
-<script>
-export default {}
-</script>
+<script lang="ts">
 
-<style scoped></style>
+import { createApp } from 'vue'
+import App from './src/App.vue'
+
+createApp(App).mount('#app')
+
+export const data = {
+  labels: [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December'
+  ],
+  datasets: [
+    {
+      label: 'Data One',
+      backgroundColor: '#f87979',
+      data: [40, 20, 12, 39, 10, 40, 39, 80, 40, 20, 12, 11]
+    }
+  ]
+}
+
+export const options = {
+  responsive: true,
+  maintainAspectRatio: false
+}
+
+
+
+
+
+import {
+
+  Chart as ChartJS,
+  Title,
+  Tooltip,
+  Legend,
+  BarElement,
+  CategoryScale,
+  LinearScale
+} from 'chart.js'
+import { Bar } from 'vue-chartjs'
+import * as chartConfig from './chartConfig.js'
+
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
+
+export default {
+  name: 'App',
+  components: {
+    Bar
+  },
+  data() {
+    return chartConfig
+  }
+}
+</script>
