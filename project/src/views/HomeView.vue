@@ -4,11 +4,6 @@
 
 <script lang="ts">
 
-import { createApp } from 'vue'
-import App from './src/App.vue'
-
-createApp(App).mount('#app')
-
 export const data = {
   labels: [
     'January',
@@ -53,7 +48,7 @@ import {
   LinearScale
 } from 'chart.js'
 import { Bar } from 'vue-chartjs'
-import * as chartConfig from './chartConfig.js'
+import * as chartConfig from '../components/BarChart.vue'
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 
