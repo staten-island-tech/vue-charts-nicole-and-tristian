@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-import BarChartVue from '@/components/BarChart.vue.vue'
+import BarChart from '@/components/BarChart.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -8,7 +8,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: BarChartVue
+      component: BarChart
     }
   ]
 })

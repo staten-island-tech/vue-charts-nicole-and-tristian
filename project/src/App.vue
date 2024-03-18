@@ -1,6 +1,5 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import BarChartVue from './components/BarChart.vue.vue';
+import { RouterLink, RouterView } from 'vue-router';
 </script>
 
 <template>

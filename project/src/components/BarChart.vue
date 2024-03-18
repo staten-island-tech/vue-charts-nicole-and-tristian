@@ -24,6 +24,11 @@ export default {
             label: 'Data One',
             backgroundColor: '#f87979',
             data: [40, 20, 12]
+          },
+          {
+            label: 'Data Two',
+            backgroundColor: '#0089f9',
+            data: [7634, 987534, 7]
           }
         ]
       }
