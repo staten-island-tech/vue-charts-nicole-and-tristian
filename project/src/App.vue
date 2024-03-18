@@ -1,5 +1,6 @@
 <template>
   <Pie :data="data" :options="options" />
+  <button>Submit</button>
 </template>
 
 <script>
@@ -14,7 +15,7 @@ export default {
   components: {
     Pie
   },
-  data() {  
+  data() {
     return chartConfig
   }
 }
