@@ -1,6 +1,12 @@
 <template>
   <Pie :data="data" :options="options" />
-  <button>Submit</button>
+  <select name="" id="list">
+    <option value="">Brooklyn</option>
+    <option value="">Staten Island</option>
+    <option value="">Bronx</option>
+    <option value="">Queens</option>
+    <option value="">Manhattan</option>
+  </select>
 </template>
 
 <script>
@@ -20,3 +26,5 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped></style>
