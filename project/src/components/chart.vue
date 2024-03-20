@@ -13,10 +13,6 @@ export const data = {
   ]
 }
 
-export const options = {
-  responsive: true,
-  maintainAspectRatio: false
-}
 </script>
 
 <style lang="scss" scoped></style>
