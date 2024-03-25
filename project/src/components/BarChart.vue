@@ -14,13 +14,21 @@ ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
 
 //part of this code is stolen and modified from this webpage (https://www.geeksforgeeks.org/how-to-get-all-unique-values-remove-duplicates-in-a-javascript-array/)
 
-const rawData = await fetch("https://data.cityofnewyork.us/resource/uip8-fykc.json");
-const apiData = rawData.json;
-console.log(rawData);
-console.log(apiData);
-let crimes = Array.from(new Set(apiData.forEach(element => {
+async function filterUniqueCrimes(varToDefine) {
+
+  const rawData = await fetch("https://data.cityofnewyork.us/resource/uip8-fykc.json");
+  const apiData = rawData.json;
+  console.log(rawData);
+  console.log(apiData);
+  varToDefine = new Set(apiData.forEach(element => {
     element.ofns_desc;
-})));
+}));
+
+};
+
+let crimesSet = null;
+filterUniqueCrimes(crimesSet);
+const crimes = Array.from(crimesSet);
 
 
 export default {
