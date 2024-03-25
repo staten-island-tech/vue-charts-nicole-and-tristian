@@ -28,9 +28,9 @@ export default {
 </script>
 
 <style scoped>
- #list {
-    padding: 0.25rem;
-    font-size: 1.1rem;
-    margin: 8rem auto;
-  }
+#list {
+  padding: 0.25rem;
+  font-size: 1.1rem;
+  margin: 8rem auto;
+}
 </style>

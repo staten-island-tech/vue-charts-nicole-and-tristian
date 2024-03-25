@@ -12,7 +12,32 @@ export const data = {
     }
   ]
 }
-
 </script>
 
-<style lang="scss" scoped></style>
+
+<template>
+  <div>
+    <h1>Crime Based on Borough</h1>
+  </div>
+</template>
+
+<script>
+export default {
+  data: {},
+  mounted: function () {
+    this.fetchData
+  },
+  methods: {
+    fetchData: async function () {
+      try {
+        const result = await fetch('https://data.cityofnewyork.us/resource/uip8-fykc.json')
+      } catch (error) {
+        console.log(error)
+      }
+    }
+  }
+}
+</script>
+
+<style scoped></style>
+
