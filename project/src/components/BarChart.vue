@@ -28,7 +28,7 @@ async function filterUniqueCrimes(varToDefine) {
 
 let crimesSet = null;
 filterUniqueCrimes(crimesSet);
-const crimes = Array.from(crimesSet);
+const crimesArray = Array.from(crimesSet);
 
 
 export default {
@@ -37,12 +37,11 @@ export default {
   data() {
     return {
       chartData: {
-        labels: crimes,
+        labels: crimesArray,
         datasets: [
           {
-            label: "Data One",
             backgroundColor: "#00ff00",
-            data: [40, 20, 12, 5, 6, 5, 6, 6, 6, 6, 6]
+            data: [40, 20, 12, 5, 6, 5, 6, 6, 6, 6, 6, 5] 
           }
         ]
       }
