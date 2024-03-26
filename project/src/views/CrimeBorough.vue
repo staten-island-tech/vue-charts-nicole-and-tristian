@@ -12,7 +12,7 @@
     </div>
   </template>
 
-<!--   <script>
+<!-- <script>
   import { Pie } from 'vue-chartjs'
   import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
   ChartJS.register(ArcElement, Tooltip, Legend)
@@ -32,7 +32,14 @@
       }
     }
   }
-  </script> 
+  </script>  -->
   
-  <style scoped>
-</style> -->
+<style scoped>
+  h1 {
+    font-family: 'Hind', sans-serif;
+    background-color: lightblue;
+    border-radius: 1rem;
+    font-size:3rem;
+    text-align: center;
+  }
+</style>
