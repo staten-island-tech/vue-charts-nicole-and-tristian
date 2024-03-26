@@ -41,5 +41,6 @@
     border-radius: 1rem;
     font-size:3rem;
     text-align: center;
+    margin-bottom: 20rem;
   }
 </style>
