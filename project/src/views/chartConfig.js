@@ -1,4 +1,4 @@
-
+/* 
   chartdata{
     export const data = {
       labels: [
@@ -29,4 +29,5 @@
     }
     
   }
-  
+   */
+

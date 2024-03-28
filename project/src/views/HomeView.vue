@@ -1,8 +1,9 @@
 <template>
-  <Bar :chartdata="chartdata" :options="options" />
+  
+  <Bar :data="chartdata" :options="options" />
 </template>
 
-<script lang="ts">
+<script lang="s">
 import {
   Chart as ChartJS,
   Title,
@@ -13,7 +14,7 @@ import {
   LinearScale
 } from 'chart.js'
 import { Bar } from 'vue-chartjs'
-import * as chartConfig from './chartConfig.ts';
+import * as chartConfig from './chartConfig.js';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 
@@ -27,3 +28,27 @@ export default {
   }
 }
 </script>
+
+<style scoped></style>
+
+<template>
+  <div>
+
+  </div>
+</template>
+
+<script>
+  export default {
+    
+  }
+</script>
+
+<style scoped>
+h1{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: larger;
+  font-display:"CRIME";
+}
+</style>
+
+
