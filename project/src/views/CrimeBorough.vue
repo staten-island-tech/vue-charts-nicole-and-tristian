@@ -1,16 +1,16 @@
 <template>
-    <h1>Crime Type Based on Borough</h1>
-    <div>
-  <!--     <Pie :data="data" :options="options" /> -->
-      <select name="" id="list">
-        <option value="">Brooklyn</option>
-        <option value="">Staten Island</option>
-        <option value="">Bronx</option>
-        <option value="">Queens</option>
-        <option value="">Manhattan</option>
-      </select>
-    </div>
-  </template>
+  <h1>Crime Type Based on Borough</h1>
+  <div>
+    <!--     <Pie :data="data" :options="options" /> -->
+    <select name="" id="list">
+      <option value="">Brooklyn</option>
+      <option value="">Staten Island</option>
+      <option value="">Bronx</option>
+      <option value="">Queens</option>
+      <option value="">Manhattan</option>
+    </select>
+  </div>
+</template>
 
 <!-- <script>
   import { Pie } from 'vue-chartjs'
@@ -33,14 +33,14 @@
     }
   }
   </script>  -->
-  
+
 <style scoped>
-  h1 {
-    font-family: 'Hind', sans-serif;
-    background-color: lightblue;
-    border-radius: 1rem;
-    font-size:3rem;
-    text-align: center;
-    margin-bottom: 20rem;
-  }
+h1 {
+  font-family: 'Hind', sans-serif;
+  background-color: lightblue;
+  border-radius: 1rem;
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 20rem;
+}
 </style>
