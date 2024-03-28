@@ -9,7 +9,7 @@
       <option value="">Queens</option>
       <option value="">Manhattan</option>
     </select>
-  </div>
+  </div>  
 </template>
 
 <!-- <script>
@@ -35,12 +35,13 @@
   </script>  -->
 
 <style scoped>
-h1 {
-  font-family: 'Hind', sans-serif;
-  background-color: lightblue;
-  border-radius: 1rem;
-  font-size: 3rem;
-  text-align: center;
-  margin-bottom: 20rem;
-}
+  h1 {
+    font-family: 'Hind', sans-serif;
+    background-color: lightblue;
+    margin: 4rem 35rem 1.5rem;
+    border-radius: 1rem;
+    font-size:3rem;
+  }
 </style>
+
+
