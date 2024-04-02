@@ -2,12 +2,12 @@
   <h1>Crime Type Based on Borough</h1>
   <div>
     <Pie :data="data" :options="options" v-if="loaded"/>
-    <select name="" id="list">
-      <option value="">Brooklyn</option>
-      <option value="">Staten Island</option>
-      <option value="">Bronx</option>
-      <option value="">Queens</option>
-      <option value="">Manhattan</option>
+    <select>
+      <option value="K">Brooklyn</option>
+      <option value="R">Staten Island</option>
+      <option value="B">Bronx</option>
+      <option value="Q">Queens</option>
+      <option value="M">Manhattan</option>
     </select>
   </div>
 </template>
@@ -23,12 +23,15 @@ ChartJS.register(ArcElement, Tooltip, Legend)
     data () {
       return {
         loaded: false,
-        pieData: {
-          labels: ['Murder', 'Steal', 'Home Invasion', 'Shooting'],
+        chartData: {
+          labels: ['Robbery', 'Burglary', 'Felony Assault', 'Arson'],
           datasets: [{
             backgroundColor: ['#41B883', '#E46651', '#00D8FF', '#DD1B16'],
             data: [0, 0, 0, 0]
           }],
+          chartOptions: {
+            responsive: true
+          }
         }
       };
     },
@@ -41,6 +44,7 @@ ChartJS.register(ArcElement, Tooltip, Legend)
           const result = await fetch('https://data.cityofnewyork.us/resource/uip8-fykc.json');
           const data = await result.json();
           this.crimes = data.results;
+          console.log(data) //works fine
         } catch (error) {
           console.log(error)
         }
@@ -58,3 +62,6 @@ h1 {
   font-size: 3rem;
 }
 </style>
+
+<!-- arrest_boro: 
+ofns_desc: -->
