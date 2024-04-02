@@ -17,6 +17,7 @@ const apiData = await rawData.json();
 console.log(rawData);
 console.log(apiData);
 
+<<<<<<< Updated upstream
 let winterCrimeCount, springCrimeCount, summerCrimeCount, autumnCrimeCount = 0;
 
 apiData.forEach((element) =>
@@ -43,6 +44,22 @@ const seasonalCrimeRateArray = [winterCrimePercentage, springCrimePercentage, su
 const crimes = apiData.forEach(element => {
     element.ofns_desc;
 });
+=======
+  const rawData = await fetch("https://data.cityofnewyork.us/resource/8h9b-rp9u.json?$limit=5750000");
+  const apiData = await rawData.json();
+  console.log(rawData);
+  console.log(apiData);
+  varToDefine = new Set(apiData.forEach(element => {
+    element.pd_desc;
+}));
+  return varToDefine;
+
+};
+
+let setOfCrimes = null;
+filterUniqueCrimes(setOfCrimes);
+const crimeLabels = Array.from(setOfCrimes);
+>>>>>>> Stashed changes
 
 console.log(crimes);
 const crimesLabelsArray = Array.from(...new Set(crimes));
@@ -54,7 +71,11 @@ export default {
   data() {
     return {
       chartData: {
+<<<<<<< Updated upstream
         labels: ["Winter", "Summer", "Spring", "Fall"],
+=======
+        labels: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"],
+>>>>>>> Stashed changes
         datasets: [
           {
             backgroundColor: ["#0000ff", "ff0000", "00ff00", "#ff8800"],
