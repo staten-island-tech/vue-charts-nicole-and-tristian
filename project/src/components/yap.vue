@@ -6,8 +6,7 @@
 
 <script>
     export default {
-     
-        data:{
+        data: {
 
         },
         mounted: function(){
