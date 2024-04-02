@@ -12,21 +12,23 @@ import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, Li
 
 ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale);
 
-async function filterUniqueCrimes(varToDefine) {
+async function grabAPIDataAndMakeCrimesArray(crimes) {
 
   const rawData = await fetch("https://data.cityofnewyork.us/resource/uip8-fykc.json");
-  const apiData = rawData.json;
+  const apiData = await rawData.json();
   console.log(rawData);
   console.log(apiData);
-  varToDefine = new Set(apiData.forEach(element => {
+  crimes = apiData.forEach(element => {
     element.ofns_desc;
-}));
+  });
+  console.log(crimes);
+  return crimes;
 
 };
 
-let crimesSet = null;
-filterUniqueCrimes(crimesSet);
-const crimesArray = Array.from(crimesSet);
+let crimes = null;
+grabAPIDataAndMakeCrimesArray(crimes);
+const crimesLabelsArray = Array.from(...new Set(crimes));
 
 
 export default {
@@ -35,7 +37,7 @@ export default {
   data() {
     return {
       chartData: {
-        labels: crimesArray,
+        labels: crimesLabelsArray,
         datasets: [
           {
             backgroundColor: "#00ff00",
