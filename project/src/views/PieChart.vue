@@ -43,15 +43,15 @@ export default {
         console.log(data)
 
         const boroughs = [
-            data.filter(item => item.arrest_boro === 'K').length, //takes the number of arrest in each borough
-            data.filter(item => item.arrest_boro === 'S').length,
-            data.filter(item => item.arrest_boro === 'B').length,
-            data.filter(item => item.arrest_boro === 'Q').length,
-            data.filter(item => item.arrest_boro === 'M').length
-        ];
+          data.filter((item) => item.arrest_boro === 'K').length, //takes the number of arrest in each borough
+          data.filter((item) => item.arrest_boro === 'S').length,
+          data.filter((item) => item.arrest_boro === 'B').length,
+          data.filter((item) => item.arrest_boro === 'Q').length,
+          data.filter((item) => item.arrest_boro === 'M').length
+        ]
 
-        this.chartData.datasets[0].data = boroughs; //updates chartData by inserting the values of arrests in each borough into the data array
-        this.loaded = true;
+        this.chartData.datasets[0].data = boroughs //updates chartData by inserting the values of arrests in each borough into the data array
+        this.loaded = true
       } catch (error) {
         console.log(error)
       }
