@@ -2,17 +2,11 @@
   <h1>Crime Type Based on Borough</h1>
   <div>
     <Pie :data="chartData" :options="options" v-if="loaded" />
-    <select>
-      <option value="K">Brooklyn</option>
-      <option value="R">Staten Island</option>
-      <option value="B">Bronx</option>
-      <option value="Q">Queens</option>
-      <option value="M">Manhattan</option>
-    </select>
   </div>
 </template>
 
 <script>
+import { pieCart} from '../stores/store'
 import { Pie } from 'vue-chartjs'
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
 ChartJS.register(ArcElement, Tooltip, Legend)
@@ -23,17 +17,12 @@ export default {
   data() {
     return {
       loaded: false,
-      brooklyn: [],
-      statenIsland: [],
-      bronx: [],
-      queens: [],
-      manhattan: [],
       chartData: {
-        labels: ['Robbery', 'Burglary', 'Felony Assault', 'Arson'],
+        labels: ['Brooklyn', 'Staten Island', 'Bronx', 'Queens', 'Manhattan'],
         datasets: [
           {
-            backgroundColor: ['#41B883', '#E46651', '#00D8FF', '#DD1B16'],
-            data: [0, 0, 0, 0]
+            backgroundColor: ['#41B883', '#E46651', '#00D8FF', '#DD1B16', '#FFFF00'],
+            data: pieCart.cart
           }
         ],
         options: {
@@ -54,11 +43,30 @@ export default {
         const data = await result.json()
         console.log(data)
 
-        this.brooklyn = data.filter(item => item.arrest_boro === 'K' && item.ofns_desc === 'Arson')
-        this.statenIsland = data.filter(item => item.arrest_boro === 'R')
-        this.bronx = data.filter(item => item.arrest_boro === 'B')
-        this.queens = data.filter(item => item.arrest_boro === 'Q')
-        this.manhattan = data.filter(item => item.arrest_boro === 'M')
+        let brooklyn = data.filter(item => item.arrest_boro === 'K')
+        let kings = brooklyn.length
+        pieCart.cart[0] = kings
+        console.log(kings)
+
+        let statenIsland = data.filter(item => item.arrest_boro === 'S')
+        let richmond = statenIsland.length
+        pieCart.cart[1] = richmond
+        console.log(richmond)
+
+        let bronx = data.filter(item => item.arrest_boro === 'B')
+        let bx_county = bronx.length
+        pieCart.cart[2] = bx_county
+        console.log(bx_county)
+
+        let queens = data.filter(item => item.arrest_boro === 'Q')
+        let qe_county = queens.length
+        pieCart.cart[3] = qe_county
+        console.log(qe_county)
+
+        let manhattan = data.filter(item => item.arrest_boro === 'M')
+        let ny_county = manhattan.length
+        pieCart.cart[4] = ny_county
+        console.log(ny_county)
 
         this.loaded = true
       } catch (error) {
