@@ -15,19 +15,22 @@ export default {
 
   data() {
     return {
-        chartData: null,
+        chartData: [{
+          data: [],
+          label
+        }],
         options: {
           responsive: true,
           maintainAspectRatio: true
         }
       }
-    },
+    },  
     created() {
       this.calculateChartData()
     },
     methods: {
         calculateChartData(){
-            const boroughs = ['Manhattan', 'Brooklyn', 'Bronx', 'Staten Island', 'Queens']
+            const boroughs = ['<18', '18-24', '25-44', '45-64', '65+']
         const crimeByBorough = {}
         boroughs.forEach(borough => {
           crimeByBorough[borough] = 0
