@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import { pieCart} from '../stores/store'
+import { pieCart } from '../stores/store'
 import { Pie } from 'vue-chartjs'
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
 ChartJS.register(ArcElement, Tooltip, Legend)
@@ -22,12 +22,12 @@ export default {
         datasets: [
           {
             backgroundColor: ['#41B883', '#E46651', '#00D8FF', '#DD1B16', '#FFFF00'],
-            data: pieCart.cart
+            data: []
           }
         ],
         options: {
           responsive: true,
-          maintainAspectRatio: false,
+          maintainAspectRatio: false
         }
       }
     }
@@ -43,39 +43,22 @@ export default {
         const data = await result.json()
         console.log(data)
 
-        let brooklyn = data.filter(item => item.arrest_boro === 'K')
-        let kings = brooklyn.length
-        pieCart.cart[0] = kings
-        console.log(kings)
+        const boroughs = [
+            data.filter(item => item.arrest_boro === 'K').length, //takes the number of arrest in each borough
+            data.filter(item => item.arrest_boro === 'S').length,
+            data.filter(item => item.arrest_boro === 'B').length,
+            data.filter(item => item.arrest_boro === 'Q').length,
+            data.filter(item => item.arrest_boro === 'M').length
+        ];
 
-        let statenIsland = data.filter(item => item.arrest_boro === 'S')
-        let richmond = statenIsland.length
-        pieCart.cart[1] = richmond
-        console.log(richmond)
-
-        let bronx = data.filter(item => item.arrest_boro === 'B')
-        let bx_county = bronx.length
-        pieCart.cart[2] = bx_county
-        console.log(bx_county)
-
-        let queens = data.filter(item => item.arrest_boro === 'Q')
-        let qe_county = queens.length
-        pieCart.cart[3] = qe_county
-        console.log(qe_county)
-
-        let manhattan = data.filter(item => item.arrest_boro === 'M')
-        let ny_county = manhattan.length
-        pieCart.cart[4] = ny_county
-        console.log(ny_county)
-
-        this.loaded = true
+        this.chartData.datasets[0].data = boroughs; //updates chartData by inserting the values of arrests in each borough into the data array
+        this.loaded = true;
       } catch (error) {
         console.log(error)
       }
     }
   }
 }
-
 </script>
 
 <style scoped>
