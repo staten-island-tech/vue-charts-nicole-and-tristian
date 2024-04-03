@@ -1,5 +1,5 @@
 <template>
-  <h1>Crime Type Based on Borough</h1>
+  <h1>Crimes Committed in Each Borough</h1>
   <div>
     <Pie :data="chartData" :options="options" v-if="loaded" />
   </div>
