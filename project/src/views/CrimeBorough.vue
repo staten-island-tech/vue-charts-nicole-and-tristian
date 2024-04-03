@@ -87,6 +87,3 @@ h1 {
   font-size: 3rem;
 }
 </style>
-
-<!-- arrest_boro: 
-ofns_desc: -->
