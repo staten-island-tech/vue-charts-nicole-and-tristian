@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   
   <Bar :data="chartdata" :options="options" />
 </template>
@@ -29,20 +29,6 @@ export default {
 }
 </script>
 
-<style scoped></style>
-
-<template>
-  <div>
-
-  </div>
-</template>
-
-<script>
-  export default {
-    
-  }
-</script>
-
 <style scoped>
 h1{
   font-family: Georgia, 'Times New Roman', Times, serif;
@@ -51,4 +37,4 @@ h1{
 }
 </style>
 
-
+ -->
