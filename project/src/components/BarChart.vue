@@ -12,7 +12,7 @@ import { Chart as ChartJS, RadialLinearScale, PointElement, LineElement, Filler,
 
 ChartJS.register( RadialLinearScale, PointElement, LineElement, Filler, Tooltip, Legend );
 
-const rawData = await fetch("https://data.cityofnewyork.us/resource/uip8-fykc.json");
+/*const rawData = await fetch("https://data.cityofnewyork.us/resource/uip8-fykc.json");
 const apiData = await rawData.json();
 console.log(rawData);
 console.log(apiData);
@@ -65,11 +65,13 @@ export default {
       }
     }
   },
-  mounted: {
-    this.buildChartData();
+  mounted: function () {
+    this.buildChartData()
   },
   methods: {
-    function buildChartData(){
+    buildChartData: async function (){
+      this.loaded = false;
+      try {
       const rawData = await fetch("https://data.cityofnewyork.us/resource/uip8-fykc.json");
       const apiData = await rawData.json();
       console.log(rawData);
@@ -98,5 +100,8 @@ export default {
 
       const seasonalCrimeRateArray = [winterCrimePercentage, springCrimePercentage, summerCrimePercentage, autumnCrimePercentage];
       return seasonalCrimeRateArray;
+      } catch (error) {
+        console.log(error);
+      }
   }}}
 </script>
