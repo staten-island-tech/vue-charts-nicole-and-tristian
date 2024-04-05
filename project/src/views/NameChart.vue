@@ -14,7 +14,7 @@ export default {
         datasets: [
           {
             backgroundColor: ['#f7706e', '#497397', '#49f493', '#a16395', '#e9e572'],
-            data: []
+            data: [25,5,10,20,5]
           }
         ],
         options:{
@@ -26,23 +26,34 @@ export default {
   },
   mounted:function (){
     this.fetchData()
-  }
-
-}
-
-methods: {
+  },
+  methods: {
   fetchData: async function () {
-    this.loaded = false
-    try{
-      const result = await fetch ('https://data.cityofnewyork.us/resource/uip8-fykc.json')
-            const data = await result.json()
-            console.log(data)
-    
+      try {
+        const result = await fetch('https://data.cityofnewyork.us/resource/uip8-fykc.json')
+        const data = await result.json()
+        console.log(data)
+        const ages = [
+          data.filter((item) => item.age_group === '<18').length,
+          data.filter((item) => item.age_group === '18-24').length,
+          data.filter((item) => item.age_group === '25-44').length,
+          data.filter((item) => item.age_group === '45-64').length,
+          data.filter((item) => item.age_group === '65+').length,
 
+      ]
+
+      console.log(ages)
+
+      } catch (error) {
+        console.log(error)
+      }
 
     }
   }
 }
+
+
+
 
 
 
