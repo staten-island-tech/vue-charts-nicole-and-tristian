@@ -1,4 +1,4 @@
-<script>
+````<script>
 import { Bar} from 'vue-chartjs'
 import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from 'chart.js'
 ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
@@ -16,11 +16,32 @@ export default {
             backgroundColor: ['#f7706e', '#497397', '#49f493', '#a16395', '#e9e572'],
             data: []
           }
-        ]
+        ],
+        options:{
+          responsive:true,
+          maintainAspectRatio: false
+        }
       }
     }
+  },
+  mounted:function (){
+    this.fetchData()
   }
 
+}
+
+methods: {
+  fetchData: async function () {
+    this.loaded = false
+    try{
+      const result = await fetch ('https://data.cityofnewyork.us/resource/uip8-fykc.json')
+            const data = await result.json()
+            console.log(data)
+    
+
+
+    }
+  }
 }
 
 
