@@ -17,25 +17,17 @@ const apiData = await rawData.json();
 console.log(rawData);
 console.log(apiData);
 
-let winterCrimeCount, springCrimeCount, summerCrimeCount, autumnCrimeCount = 0;
+const [winterCrimeCount, springCrimeCount, summerCrimeCount, autumnCrimeCount] = [
+  apiData.filter(el => el.arrest_date[7] === 1 | 2 | 3 && el.arrest_date[6] !== 1 ).length,
+  apiData.filter(el => el.arrest_date[7] === 4 | 5 | 6 ).length,
+  apiData.filter(el => el.arrest_date[7] === 7 | 8 | 9 ).length,
+  apiData.filter(el => el.arrest_date[6] === 1 ).length
+];
 
-apiData.forEach((element) =>
-{
-  if (element.arrest_date[7] === 1 | 2 | 3) {
-    winterCrimeCount++;
-  } else if (element.arrest_date[7] === 4 | 5 | 6) {
-    springCrimeCount++;
-  } else if (element.arrest_date[7] === 7 | 8 | 9) {
-    summerCrimeCount++;
-  } else if (element.arrest_date[6] === 1) {
-    autumnCrimeCount++;
-  }}
-);
-
-let winterCrimePercentage = (winterCrimeCount / ( winterCrimeCount + springCrimeCount + summerCrimeCount + autumnCrimeCount)) * 100;
-let springCrimePercentage = (springCrimeCount / ( winterCrimeCount + springCrimeCount + summerCrimeCount + autumnCrimeCount)) * 100;
-let summerCrimePercentage = (summerCrimeCount / ( winterCrimeCount + springCrimeCount + summerCrimeCount + autumnCrimeCount)) * 100;
-let autumnCrimePercentage = (autumnCrimeCount / ( winterCrimeCount + springCrimeCount + summerCrimeCount + autumnCrimeCount)) * 100; 
+const winterCrimePercentage = (winterCrimeCount / ( winterCrimeCount + springCrimeCount + summerCrimeCount + autumnCrimeCount)) * 100;
+const springCrimePercentage = (springCrimeCount / ( winterCrimeCount + springCrimeCount + summerCrimeCount + autumnCrimeCount)) * 100;
+const summerCrimePercentage = (summerCrimeCount / ( winterCrimeCount + springCrimeCount + summerCrimeCount + autumnCrimeCount)) * 100;
+const autumnCrimePercentage = (autumnCrimeCount / ( winterCrimeCount + springCrimeCount + summerCrimeCount + autumnCrimeCount)) * 100; 
 
 const seasonalCrimeRateArray = [winterCrimePercentage, springCrimePercentage, summerCrimePercentage, autumnCrimePercentage];
 
