@@ -14,7 +14,7 @@ export default {
         datasets: [
           {
             backgroundColor: ['#f7706e', '#497397', '#49f493', '#a16395', '#e9e572'],
-            data: [25,5,10,20,5]
+            data: [54,178,564,189,15]
           }
         ],
         options:{
@@ -42,7 +42,9 @@ export default {
 
       ]
 
+    this.chartData.datasets[1].data = ages;
       console.log(ages)
+
 
       } catch (error) {
         console.log(error)
