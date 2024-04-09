@@ -1,8 +1,8 @@
 <template>
   <Doughnut
-    id="my-chart-id"
     :data="chartData"
     :options="options"
+    v-if="loaded"
   />
 </template>
 
@@ -59,6 +59,7 @@ export default {
   data() {
     return {
       chartData: {
+        loaded: false,
         labels: ["Winter", "Summer", "Spring", "Fall"],
         datasets: [
           {
@@ -81,18 +82,32 @@ export default {
     buildChartData: async function (){
       this.loaded = false;
       try {
-        this.loaded = true;
+        
         const rawData = await fetch("https://data.cityofnewyork.us/resource/uip8-fykc.json");
         const apiData = await rawData.json();
         console.log(rawData);
         console.log(apiData);
 
-        const [winterCrimeCount, springCrimeCount, summerCrimeCount, autumnCrimeCount] = [
-          apiData.filter(el => el.arrest_date[7] === 1 | 2 | 3 && el.arrest_date[6] !== 1 ).length,
-          apiData.filter(el => el.arrest_date[7] === 4 | 5 | 6 ).length,
-          apiData.filter(el => el.arrest_date[7] === 7 | 8 | 9 ).length,
-          apiData.filter(el => el.arrest_date[6] === 1 ).length
-        ];
+        let winterCrimeCount, springCrimeCount, summerCrimeCount, autumnCrimeCount = 0;
+        apiData.forEach(element => {
+          
+          if ( element.arrest_date[7] === 1 | 2 | 3 && element.arrest_date[6] !== 1 ) {
+            winterCrimeCount++;
+          } else if ( element.arrest_date[7] === 4 | 5 | 6 ) {
+            springCrimeCount++;
+          } else if ( element.arrest_date[7] === 7 | 8 | 9  ) {
+            summerCrimeCount++;
+          } else if ( element.arrest_date[6] === 1  ) {
+            autumnCrimeCount++;
+          }
+  
+        });
+        /*const [winterCrimeCount, springCrimeCount, summerCrimeCount, autumnCrimeCount] = [
+          apiData.map(el => el.arrest_date[7] === 1 | 2 | 3 && el.arrest_date[6] !== 1 ).length,
+          apiData.map(el => el.arrest_date[7] === 4 | 5 | 6 ).length,
+          apiData.map(el => el.arrest_date[7] === 7 | 8 | 9 ).length,
+          apiData.map(el => el.arrest_date[6] === 1 ).length
+        ];*/
 
         let winterCrimePercentage = ( winterCrimeCount / ( winterCrimeCount + springCrimeCount + summerCrimeCount + autumnCrimeCount )) * 100;
         let springCrimePercentage = ( springCrimeCount / ( winterCrimeCount + springCrimeCount + summerCrimeCount + autumnCrimeCount )) * 100;
@@ -100,7 +115,9 @@ export default {
         let autumnCrimePercentage = ( autumnCrimeCount / ( winterCrimeCount + springCrimeCount + summerCrimeCount + autumnCrimeCount )) * 100; 
 
         const seasonalCrimeRateArray = [winterCrimePercentage, springCrimePercentage, summerCrimePercentage, autumnCrimePercentage];
-        return seasonalCrimeRateArray;
+        this.chartData.datasets[0].data = seasonalCrimeRateArray;
+        this.loaded = true;
+
         } catch (error) {
           console.log(error);
         }
