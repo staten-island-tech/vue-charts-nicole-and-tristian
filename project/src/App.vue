@@ -10,7 +10,7 @@ import { RouterLink, RouterView } from 'vue-router'
 
       <nav>
         <RouterLink to="/">Arrests in Boroughs</RouterLink>
-        <RouterLink to="/about"></RouterLink>
+        <RouterLink to="/NameChart">Age Range for Crime</RouterLink>
       </nav>
     </div>
   </header>
@@ -20,6 +20,7 @@ import { RouterLink, RouterView } from 'vue-router'
 
 
 <style >
+
 h2{
   text-align: center;
 }

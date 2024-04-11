@@ -1,4 +1,5 @@
 <template>
+  <h1>Crime Based on Age</h1>
   <main>
     <div class="flex-container">
       <div class="chartcontainer">
@@ -66,6 +67,16 @@ export default {
 </script>
   
   <style scoped>
+
+h1 {
+  font-family: 'Hind', sans-serif;
+  background-color: lightblue;
+  margin: 4rem 35rem 1.5rem;
+  border-radius: 1rem;
+  font-size: 3rem;
+  text-align: center;
+}
+
   .flex-container {
     display: flex;
     flex: auto;
