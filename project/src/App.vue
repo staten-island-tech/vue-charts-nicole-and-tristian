@@ -9,8 +9,8 @@ import { RouterLink, RouterView } from 'vue-router'
       <HelloWorld msg="You did it!" />
 
       <nav>
-        <RouterLink to="/">Arrests in Boroughs</RouterLink>
-        <RouterLink to="/NameChart">Age Range for Crime</RouterLink>
+        <h2><RouterLink to="/">Arrests in Boroughs</RouterLink></h2>
+       <h2><RouterLink to="/NameChart">Age Range for Crime</RouterLink></h2> 
       </nav>
     </div>
   </header>
