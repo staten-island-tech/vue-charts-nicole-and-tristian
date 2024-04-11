@@ -58,12 +58,12 @@ export default {
   components: { Doughnut },
   data() {
     return {
+      loaded: false,
       chartData: {
-        loaded: false,
         labels: ["Winter", "Summer", "Spring", "Fall"],
         datasets: [
           {
-            backgroundColor: ["#0000ff", "#ff0000", "#00ff00", "#ff8800"],
+            backgroundColor: ["#9999ff", "#ff8888", "#66ff66", "#ffbb88"],
             data: []
             //data: [winterCrimePercentage, springCrimePercentage, summerCrimePercentage, autumnCrimePercentage] 
           }
@@ -91,13 +91,13 @@ export default {
         let winterCrimeCount, springCrimeCount, summerCrimeCount, autumnCrimeCount = 0;
         apiData.forEach(element => {
           
-          if ( element.arrest_date[7] === 1 | 2 | 3 && element.arrest_date[6] !== 1 ) {
+          if ( Number(element.arrest_date[6])) === 1 | 2 | 3 && Number(element.arrest_date[5]) !== 1 ) {
             winterCrimeCount++;
-          } else if ( element.arrest_date[7] === 4 | 5 | 6 ) {
+          } else if ( Number(element.arrest_date[6]) === 4 | 5 | 6 ) {
             springCrimeCount++;
-          } else if ( element.arrest_date[7] === 7 | 8 | 9  ) {
+          } else if ( Number(element.arrest_date[6]) === 7 | 8 | 9  ) {
             summerCrimeCount++;
-          } else if ( element.arrest_date[6] === 1  ) {
+          } else if ( Number(element.arrest_date[5]) === 1  ) {
             autumnCrimeCount++;
           }
   
@@ -115,6 +115,7 @@ export default {
         let autumnCrimePercentage = ( autumnCrimeCount / ( winterCrimeCount + springCrimeCount + summerCrimeCount + autumnCrimeCount )) * 100; 
 
         const seasonalCrimeRateArray = [winterCrimePercentage, springCrimePercentage, summerCrimePercentage, autumnCrimePercentage];
+        console.log(winterCrimeCount, winterCrimePercentage, springCrimeCount, springCrimePercentage, summerCrimeCount, summerCrimePercentage, autumnCrimeCount, autumnCrimePercentage);
         this.chartData.datasets[0].data = seasonalCrimeRateArray;
         this.loaded = true;
 
