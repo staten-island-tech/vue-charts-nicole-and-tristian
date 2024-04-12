@@ -28,11 +28,11 @@ apiData.forEach((element) =>
 {
   if (element.arrest_date[6] === 1) {
     autumnCrimeCount++;
-  } else if (element.arrest_date[7] === 1 | 2 | 3) {
+  } else if (element.arrest_date[7] === 1 || 2 || 3) {
     winterCrimeCount++;
-  } else if (element.arrest_date[7] === 4 | 5 | 6) {
+  } else if (element.arrest_date[7] === 4 || 5 || 6) {
     springCrimeCount++;
-  } else if (element.arrest_date[7] === 7 | 8 | 9) {
+  } else if (element.arrest_date[7] === 7 || 8 || 9) {
     summerCrimeCount++;
   }
 }
@@ -88,24 +88,27 @@ export default {
         console.log(rawData);
         console.log(apiData);
 
-        let winterCrimeCount, springCrimeCount, summerCrimeCount, autumnCrimeCount = 0;
+        let winterCrimeCount =  0;
+        let springCrimeCount=0
+        let summerCrimeCount =0
+        let autumnCrimeCount =0
         apiData.forEach(element => {
-          
-          if ( Number(element.arrest_date[6])) === 1 | 2 | 3 && Number(element.arrest_date[5]) !== 1 ) {
+        
+          if ( (Number(element.arrest_date[6]) === 1 || Number(element.arrest_date[6]) === 2 || Number(element.arrest_date[6]) === 3) && Number(element.arrest_date[5]) !== 1 ) {
             winterCrimeCount++;
-          } else if ( Number(element.arrest_date[6]) === 4 | 5 | 6 ) {
+          } else if ( Number(element.arrest_date[6]) === 4 || Number(element.arrest_date[6]) === 5 || Number(element.arrest_date[6]) === 6 ) {
             springCrimeCount++;
-          } else if ( Number(element.arrest_date[6]) === 7 | 8 | 9  ) {
+          } else if ( Number(element.arrest_date[6]) === 7 || Number(element.arrest_date[6]) === 8 || Number(element.arrest_date[6]) === 9 ) {
             summerCrimeCount++;
-          } else if ( Number(element.arrest_date[5]) === 1  ) {
+          } else if ( Number(element.arrest_date[5]) === 1 ) {
             autumnCrimeCount++;
           }
   
         });
         /*const [winterCrimeCount, springCrimeCount, summerCrimeCount, autumnCrimeCount] = [
-          apiData.map(el => el.arrest_date[7] === 1 | 2 | 3 && el.arrest_date[6] !== 1 ).length,
-          apiData.map(el => el.arrest_date[7] === 4 | 5 | 6 ).length,
-          apiData.map(el => el.arrest_date[7] === 7 | 8 | 9 ).length,
+          apiData.map(el => el.arrest_date[7] === 1 || 2 || 3 && el.arrest_date[6] !== 1 ).length,
+          apiData.map(el => el.arrest_date[7] === 4 || 5 || 6 ).length,
+          apiData.map(el => el.arrest_date[7] === 7 || 8 || 9 ).length,
           apiData.map(el => el.arrest_date[6] === 1 ).length
         ];*/
 
@@ -123,4 +126,4 @@ export default {
           console.log(error);
         }
   }}}
-</script>
+</script>   
