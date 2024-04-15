@@ -88,10 +88,10 @@ export default {
         console.log(rawData);
         console.log(apiData);
 
-        let winterCrimeCount =  0;
-        let springCrimeCount=0
-        let summerCrimeCount =0
-        let autumnCrimeCount =0
+        let winterCrimeCount = 0;
+        let springCrimeCount = 0;
+        let summerCrimeCount = 0;
+        let autumnCrimeCount = 0;
         apiData.forEach(element => {
         
           if ( (Number(element.arrest_date[6]) === 1 || Number(element.arrest_date[6]) === 2 || Number(element.arrest_date[6]) === 3) && Number(element.arrest_date[5]) !== 1 ) {
