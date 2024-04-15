@@ -10,7 +10,8 @@ import { RouterLink, RouterView } from 'vue-router'
 
       <nav>
         <h2><RouterLink to="/">Arrests in Boroughs</RouterLink></h2>
-       <h2><RouterLink to="/NameChart">Age Range for Crime</RouterLink></h2> 
+        <h2><RouterLink to="/NameChart">Age Range for Crime</RouterLink></h2>
+        <h2><RouterLink to="/DoughnutChart">Seasonal Crime Distribution</RouterLink></h2>        
       </nav>
     </div>
   </header>
@@ -26,4 +27,3 @@ h2{
 }
 
 </style>
-

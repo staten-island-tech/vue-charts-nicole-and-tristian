@@ -11,6 +11,11 @@ const router = createRouter({
       path: '/NameChart',
       name: 'Age Range for Crime',
       component: () => import('../views/NameChart.vue')
+    },
+    {
+      path: '/DoughnutChart',
+      name: 'Seasonal Crime Distribution',
+      component: () => import('../views/DoughnutChart.vue')
     }
   ]
 })
