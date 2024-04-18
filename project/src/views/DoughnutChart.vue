@@ -1,4 +1,5 @@
 <template>
+  <h3>Percentages of Crime Committed Per Season</h3>
   <Doughnut
     :data="chartData"
     :options="options"
