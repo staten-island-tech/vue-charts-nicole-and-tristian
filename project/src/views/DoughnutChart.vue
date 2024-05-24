@@ -1,10 +1,12 @@
 <template>
   <h1>Percentages of Crime Committed Per Season</h1>
-  <Doughnut
+  <div class="container">
+    <Doughnut
     :data="chartData"
     :options="options"
     v-if="loaded"
   />
+  </div>
 </template>
 
 <script>
@@ -127,14 +129,21 @@ export default {
           console.log(error);
         }
   }}}
-</script>   
+</script>
 
-<style>
+<style scoped>
 h1 {
   font-family: 'Hind', sans-serif;
   background-color: lightblue;
   margin: 4rem 35rem 1.5rem;
   border-radius: 1rem;
   font-size: 3rem;
+}
+
+.container {
+
+  width: 600px;
+  height: 600px;
+  justify-self: center;
 }
 </style>
