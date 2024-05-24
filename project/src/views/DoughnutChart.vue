@@ -1,5 +1,5 @@
 <template>
-  <h3>Percentages of Crime Committed Per Season</h3>
+  <h1>Percentages of Crime Committed Per Season</h1>
   <Doughnut
     :data="chartData"
     :options="options"
@@ -128,3 +128,13 @@ export default {
         }
   }}}
 </script>   
+
+<style>
+h1 {
+  font-family: 'Hind', sans-serif;
+  background-color: lightblue;
+  margin: 4rem 35rem 1.5rem;
+  border-radius: 1rem;
+  font-size: 3rem;
+}
+</style>
