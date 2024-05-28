@@ -144,6 +144,7 @@ h1 {
 
   width: 600px;
   height: 600px;
-  justify-self: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 </style>
